@@ -9,11 +9,12 @@ const MainContainer = () => {
   if (error) return <p className="text-red-500 text-center">{error}</p>;
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {filteredProducts.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <div className="  flex justify-center items-center min-h-screen bg-gray-100">
+  {filteredProducts.map((product) => (
+    <ProductCard key={product.id} product={product} />
+  ))}
+</div>
+
   );
 };
 
