@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import MainContainer from "./components/MainContainer";
 import { ProductProvider } from "./Context/ProductContext";
 import "./index.css";
+import ProductCard from "./components/ProductCard";
 import { useContext } from "react";
 import { ProductContext } from "./Context/ProductContext";
 import "./App.css";
