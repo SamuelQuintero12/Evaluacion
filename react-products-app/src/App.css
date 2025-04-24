@@ -1,38 +1,87 @@
-.App {
+:root {
+  --primary: #4CAF50;
+  --secondary: #81C784;
+  --accent: #A5D6A7;
+  --dark: #2E7D32;
+  --background: #F1F8E9;
+  --text: #1B5E20;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+header, footer {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card img {
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 0.875rem;
+  color: #555;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card span {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--dark);
+  font-weight: bold;
 }

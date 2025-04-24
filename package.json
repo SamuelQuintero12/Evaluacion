@@ -1,0 +1,25 @@
+{
+  "name": "tailwindcss-setup",
+  "version": "1.0.0",
+  "description": "A simple Tailwind CSS setup",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build src/styles.css -o dist/styles.css",
+    "watch": "tailwindcss build src/styles.css -o dist/styles.css --watch"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4"
+  }
+}

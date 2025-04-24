@@ -1,7 +1,25 @@
 {
-  "name": "react-products-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "tailwindcss-setup",
+  "version": "1.0.0",
+  "description": "A simple Tailwind CSS setup",
+  "main": "index.js",
+ 
+  "author": "Your Name",
+  "license": "ISC",
+  
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+    "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

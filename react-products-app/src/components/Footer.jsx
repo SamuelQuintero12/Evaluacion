@@ -1,9 +1,6 @@
-import React from "react";
-
 const Footer = () => (
-  <footer className="footer">
-    <p>&copy; {new Date().getFullYear()} GreenStore. Todos los derechos reservados.</p>
-    <p>Desarrollado con 💚 por ti</p>
+  <footer className="bg-dark text-white text-center py-4">
+    <p>&copy; {new Date().getFullYear()} GreenStore — Hecho con React y Tailwind 💚</p>
   </footer>
 );
 

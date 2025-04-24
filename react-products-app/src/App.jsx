@@ -1,35 +1,19 @@
-// src/App.jsx
-import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import MainContainer from "./components/MainContainer";
 import SearchBar from "./components/SearchBar";
-import "./styles/main.css";
+import MainContainer from "./components/MainContainer";
 
 function App() {
-  const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.error("Error al cargar productos:", err));
-  }, []);
-
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   return (
-    <div className="app">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <MainContainer products={filteredProducts} />
+      <main className="flex-1 container mx-auto px-4 py-6">
+        <SearchBar />
+        <MainContainer />
+      </main>
       <Footer />
     </div>
   );
 }
 
 export default App;
-
