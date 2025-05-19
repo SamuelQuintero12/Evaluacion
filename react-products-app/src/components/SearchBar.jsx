@@ -1,20 +1,25 @@
-import { useContext } from "react";
-import { ProductContext } from "../Context/ProductContext";
+import React, { useContext } from 'react';
+import { ProductContext } from '../Context/ProductContext';
 
 const SearchBar = () => {
-  const { setSearchQuery } = useContext(ProductContext);
+  const { searchQuery, setSearchQuery } = useContext(ProductContext);
+
+  if (typeof setSearchQuery !== 'function') {
+    return <div className="searchbar-loading"></div>;
+  }
 
   return (
-    <div className="mb-6">
+    <div className="searchbar-container">
       <input
-        type="text"
-        placeholder="Buscar productos..."
+        type="search"
+        aria-label="Buscar productos"
+        placeholder="Buscar por nombre o categoría..."
+        value={searchQuery || ''}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="w-full md:w-1/2 px-4 py-2 border border-accent rounded-lg focus:ring-2 focus:ring-primary"
+        className="searchbar-input"
       />
     </div>
   );
 };
 
 export default SearchBar;
-

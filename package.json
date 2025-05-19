@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "A simple Tailwind CSS setup",
   "main": "index.js",
+
+  
   "scripts": {
     "build": "tailwindcss build src/styles.css -o dist/styles.css",
     "watch": "tailwindcss build src/styles.css -o dist/styles.css --watch"

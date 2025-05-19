@@ -1,10 +1,10 @@
 :root {
-  --primary: #4CAF50;
-  --secondary: #81C784;
-  --accent: #A5D6A7;
-  --dark: #2E7D32;
-  --background: #F1F8E9;
-  --text: #1B5E20;
+  --primary: #4caf50;
+  --secondary: #81c784;
+  --accent: #a5d6a7;
+  --dark: #2e7d32;
+  --background: #f1f8e9;
+  --text: #1b5e20;
 }
 
 body {
@@ -14,7 +14,8 @@ body {
   color: var(--text);
 }
 
-header, footer {
+header,
+footer {
   background-color: var(--primary);
   color: white;
   padding: 1rem;
@@ -39,7 +40,7 @@ input[type="text"] {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -48,41 +49,210 @@ input[type="text"] {
   background: white;
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   height: 100%;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
-.card img {
-  max-height: 150px;
+.card-img {
+  width: 100%;
+  height: 150px;
   object-fit: contain;
   margin-bottom: 1rem;
+  border-radius: 8px;
 }
 
-.card h2 {
+.card-title {
   font-size: 1rem;
-  margin: 0.5rem 0;
-  font-weight: bold;
+  font-weight: 23;
 }
 
-.card p {
+.card-description {
   font-size: 0.875rem;
   color: #555;
   height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
 }
 
-.card span {
-  margin-top: 0.5rem;
-  font-size: 1.1rem;
-  color: var(--dark);
+.card-price {
+  font-size: 1.2rem;
   font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 1rem;
 }
+
+.card-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: var(--dark);
+}
+
+
+/* Loading Spinner */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 300px);
+  color: #444;
+}
+
+.spinner {
+  border: 4px solid transparent;
+  border-top: 4px solid var(--primary);
+  border-bottom: 4px solid var(--primary);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error State */
+.error-state {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.error-state .icon {
+  width: 64px;
+  height: 64px;
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.error-state .error-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: red;
+}
+
+.error-state button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.error-state button:hover {
+  background-color: var(--dark);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.empty-state .icon {
+  width: 80px;
+  height: 80px;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.empty-state span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #999;
+}
+
+/* Fade-in animation for products */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.searchbar-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border: 2px solid #cbd5e1; /* gris claro */
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchbar-input:focus {
+  border-color: #6366f1; /* indigo */
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+  outline: none;
+}
+
+.searchbar-loading {
+  height: 3rem;
+  width: 100%;
+  max-width: 500px;
+  background-color: #e5e7eb; /* gris pálido */
+  border-radius: 12px;
+  animation: pulse 1.5s infinite ease-in-out;
+  margin: 0 auto 2rem auto;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+  
